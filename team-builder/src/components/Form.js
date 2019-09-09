@@ -24,6 +24,14 @@ const Form = props => {
         props.addNewMember(newMember);
     }
 
+    const resetForm = event => {
+        setMember({
+            name: '',
+            email: '',
+            role: '' 
+        })
+    };
+
     return (
         <form onSubmit={submitForm}>
             <label htmlFor='name' hidden>Name</label>
@@ -40,6 +48,7 @@ const Form = props => {
             />
 
             <button type='submit'>Add a member</button>
+            <button onClick={resetForm}>Reset</button>
         </form>
     );
 }
