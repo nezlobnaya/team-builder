@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const FormContainer = styled.div`
+    margin-bottom: 20px;
+`
 
 
 const Form = props => {
@@ -39,6 +44,7 @@ const Form = props => {
     };
 
     return (
+        <FormContainer>
         <form onSubmit={submitForm}>
             <label htmlFor='name' hidden>Name</label>
             <input type='text' name='name' placeholder='Name' value={member.name} 
@@ -49,12 +55,13 @@ const Form = props => {
             <input type='email' name='email' placeholder='Email' value={member.email} onChange={changeHandler}
             />
 
-            <label htmlFor='role' hidden>Name</label>
+            <label htmlFor='role' hidden>Role</label>
             <input type='text' name='role' placeholder='Role' value={member.role} onChange={changeHandler}
             />
             <button type='submit'>Add a member</button>
             <button type='reset' onClick={resetForm}>Reset</button>
         </form>
+        </FormContainer>
     );
 }
 
