@@ -10,7 +10,11 @@ function App() {
   const [members, setMembers] = useState(data);
 
   const addNewMember = member => {
-    setMembers([...members, member ]);
+
+    const present = members.find(el => el.name === member.name || el.email === member.email)
+    if (!present) {
+      setMembers([...members, member ]);
+    }
   };
 
   
