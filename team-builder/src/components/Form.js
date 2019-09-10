@@ -10,9 +10,7 @@ const Form = props => {
     })
 
     const changeHandler = event => {
-        setMember({...member, [event.target.name]: event.target.value});
-        // setMember({...member, [event.target.email]: event.target.value});
-        // setMember({...member, [event.target.role]: event.target.value});
+        setMember({...member, [event.target.name]: event.target.value}, );
     }
 
     const submitForm = event => {
@@ -25,10 +23,11 @@ const Form = props => {
     }
 
     const resetForm = event => {
+        event.preventDefault();
         setMember({
             name: '',
             email: '',
-            role: '' 
+            role: ''
         })
     };
 
@@ -46,9 +45,8 @@ const Form = props => {
             <label htmlFor='role' hidden>Name</label>
             <input type='text' name='role' placeholder='Role' value={member.role} onChange={changeHandler}
             />
-
             <button type='submit'>Add a member</button>
-            <button onClick={resetForm}>Reset</button>
+            <button type='reset' onClick={resetForm}>Reset</button>
         </form>
     );
 }
