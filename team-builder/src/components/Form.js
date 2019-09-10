@@ -19,11 +19,18 @@ const Form = props => {
             ...member,
             id: Date.now()
         };
-        props.addNewMember(newMember);
+
+        if (!newMember.name || !newMember.email || !newMember.role) {
+            alert('Please fill out all fields!');
+        } else {
+            
+         props.addNewMember(newMember);
+        
+        }
     }
 
     const resetForm = event => {
-        event.preventDefault();
+        
         setMember({
             name: '',
             email: '',
